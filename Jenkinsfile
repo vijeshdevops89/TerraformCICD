@@ -32,9 +32,9 @@ pipeline {
             }
         }
         
-        stage('Terraform ${action}'){
+        stage('Terraform ${params.action}'){
             steps{
-                sh 'terraform ${action} -auto-approve'
+                sh 'terraform ${params.action} -auto-approve'
             }
         }
     }
