@@ -38,7 +38,7 @@ pipeline {
                     if ("${params.action}" == "apply") {
                         sh '''
                             echo "Creating the Infrastructure..."
-                            terraform apply "infra1.tfplan" -auto-approve
+                            terraform apply  -auto-approve
                         '''
                     } else if ("${params.action}" == "destroy") {
                         sh '''
