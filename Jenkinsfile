@@ -39,12 +39,12 @@ pipeline {
         stage('Terraform Action'){
             steps{
                 script {
-                    if (${params.action} == "apply") {
+                    if ("${params.action}" == "apply") {
                         sh '''
                             echo "Creating the Infrastructure..."
                             terraform apply infra1.tfplan -auto-approve
                         '''
-                    } else if (${params.action} == "destroy") {
+                    } else if ("${params.action}" == "destroy") {
                         sh '''
                             echo "Creating the Infrastructure..."
                             terraform destroy -auto-approve
