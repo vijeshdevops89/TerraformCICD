@@ -46,7 +46,7 @@ pipeline {
                         '''
                     } else if ("${params.action}" == "destroy") {
                         sh '''
-                            echo "Creating the Infrastructure..."
+                            echo "Destroying the Infrastructure..."
                             terraform destroy -auto-approve
                         '''
                     }
