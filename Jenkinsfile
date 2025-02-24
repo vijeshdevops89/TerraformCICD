@@ -36,7 +36,7 @@ pipeline {
             }
         }
         
-        stage('Terraform ${params.action}'){
+        stage("Terraform ${params.action}"){
             steps{
                 sh "terraform ${params.action} -auto-approve"
             }
