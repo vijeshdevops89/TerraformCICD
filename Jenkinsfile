@@ -1,6 +1,10 @@
 pipeline {
     
     agent any
+
+    parameters {
+        choice(name: 'action', choices: ['apply', 'destroy'], description: 'Choose Terraform action: apply or destroy')
+    }
     
     environment {
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
@@ -32,9 +36,9 @@ pipeline {
             }
         }
         
-        stage('Terraform ${action}'){
+        stage('Terraform ${params.action}'){
             steps{
-                sh 'terraform ${action} -auto-approve'
+                sh 'terraform ${params.action} -auto-approve'
             }
         }
     }
