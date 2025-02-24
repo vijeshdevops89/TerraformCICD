@@ -1,10 +1,6 @@
 pipeline {
     
     agent any
-
-    parameters {
-        choice(name: 'action', choices: ['apply', 'destroy'], description: 'Choose Terraform action: apply or destroy')
-    }
     
     environment {
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
